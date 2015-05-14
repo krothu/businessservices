@@ -43,6 +43,7 @@ Bundles and related resources of the **Bundle CRUD API**
                                 { 
                                     "guid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac", 
                                     "status": "active",
+                                    "type": "email",
                                     "dateCreated": 1431588596095, 
                                     "lastUpdated": 1431588596095,
                                     "sendTo": "Bob@Imposter.co.uk"
@@ -50,6 +51,7 @@ Bundles and related resources of the **Bundle CRUD API**
                                 { 
                                     "guid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac", 
                                     "status": "active",
+                                    "type": "view",
                                     "dateCreated": 1431588596095, 
                                     "lastUpdated": 1431588596095,
                                     "uri": "http://charles-river.co.uk"
@@ -70,6 +72,7 @@ Bundles and related resources of the **Bundle CRUD API**
                                 { 
                                     "guid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac", 
                                     "status": "active",
+                                    "type": "email",
                                     "dateCreated": 1431588596095, 
                                     "lastUpdated": 1431588596095,
                                     "sendTo": "Bob@Imposter.co.uk"
@@ -122,6 +125,7 @@ A single Bundle object with all its details
                                 { 
                                     "guid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac", 
                                     "status": "active",
+                                    "type": "email",
                                     "dateCreated": 1431588596095, 
                                     "lastUpdated": 1431588596095,
                                     "sendTo": "Bob@Imposter.co.uk"
@@ -129,6 +133,7 @@ A single Bundle object with all its details
                                 { 
                                     "guid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac", 
                                     "status": "active",
+                                    "type": "veiw",
                                     "dateCreated": 1431588596095, 
                                     "lastUpdated": 1431588596095,
                                     "uri": "http://charles-river.co.uk"
@@ -185,7 +190,7 @@ Features are related resources of the **Bundles CRUD API**
 + Response 201 (application/json)
 
         { 
-            "guid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac"
+            "guid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac",
             "type": "email", 
             "status": "inactive",
             "dateCreated": 1431588596095, 
@@ -207,6 +212,7 @@ A single feature object
             { 
                 "guid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac", 
                 "status": "inactive",
+                "type": "email",
                 "dateCreated": 1431588596095, 
                 "lastUpdated": 1431588596095,
                 "sendTo": "Bob@Imposter.com"
@@ -225,6 +231,7 @@ A single feature object
         { 
             "guid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac", 
             "status": "active",
+            "type": "email",
             "dateCreated": 1431588596095, 
             "lastUpdated": 1431588596095,
             "sendTo": "Bob@Imposter.co.uk"
