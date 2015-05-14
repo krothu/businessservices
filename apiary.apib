@@ -1,0 +1,231 @@
+FORMAT: 1A
+HOST: https://lab-registry.bnymellon.net
+
+# Bundle CRUD API
+Bundle API is a *bundle* that contains a number of features.
+
+# Group Bundles
+Bundles and related resources of the **Bundle CRUD API**
+
+## Bundles [/secure/bundles]
+### Create a Bundle [POST]
++ Request (application/json)
+
+        { 
+            "name": "new bundle"
+        }
+
++ Response 201 (application/json)
+
+        { 
+            "guid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac", 
+            "name": "new bundle"
+            "status": "inactive",
+            "dateCreated": 1431588596095, 
+            "lastUpdated": 1431588596095
+        }
+
+### List all Bundles [GET]
++ Response 200 (application/json)
+
+        [
+            {
+                "guid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac",
+                "name": "Charles River"
+                "status": "active",
+                "dateCreated": 1431588596095, 
+                "lastUpdated": 1431588596095,
+                "repositoryData": {
+                                    "logo": ["data:image/jpg;base64,/9j/KIlEX//Z"],
+                                    "overview": ["<h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>"]
+                },
+                "features": [
+                                { 
+                                    "guid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac", 
+                                    "status": "active",
+                                    "dateCreated": 1431588596095, 
+                                    "lastUpdated": 1431588596095,
+                                    "sendTo": "Bob@Imposter.co.uk"
+                                },
+                                { 
+                                    "guid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac", 
+                                    "status": "active",
+                                    "dateCreated": 1431588596095, 
+                                    "lastUpdated": 1431588596095,
+                                    "uri": "http://charles-river.co.uk"
+                                }
+                ]
+            },
+            {
+                "guid": "14e5f7d0-d3c2-49f1-a074-d51777345e72",
+                "name": "Some Other Bundle"
+                "status": "inactive",
+                "dateCreated": "1431588596095", 
+                "lastUpdated": "1431588596095",
+                "repositoryData": {
+                                    "logo": ["data:image/jpg;base64,/9j/KIlEX//Z"],
+                                    "overview": ["<h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>"]
+                },
+                "features": [
+                                { 
+                                    "guid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac", 
+                                    "status": "active",
+                                    "dateCreated": 1431588596095, 
+                                    "lastUpdated": 1431588596095,
+                                    "sendTo": "Bob@Imposter.co.uk"
+                                }
+                ]
+            }
+        ]
+                
+
+## Bundles [/secure/bundles/{guid}]
+A single Bundle object with all its details
+
++ Parameters
+    + guid (required, alpha numeric, `558f7e5d-4c1b-4eb7-8166-f134f9ae07ac`) ... Alpha Numeric `guid` of the Bundles to perform action with. Has example value.
+
+### Update a Bundle [PUT]
++ Request (application/json)
+
+        { 
+            "name": "new bundle"
+            "status": "active"
+        }
+
++ Response 201 (application/json)
+
+        { 
+            "guid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac", 
+            "name": "new bundle"
+            "status": "active",
+            "dateCreated": 1431588596095, 
+            "lastUpdated": 1431588596095
+        }
+
+### Retrieve a Bundle [GET]
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "guid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac",
+                "name": "Charles River"
+                "status": "active",
+                "dateCreated": "1431588596095", 
+                "lastUpdated": "1431588596095",
+                "repositoryData": {
+                                    "logo": ["data:image/jpg;base64,/9j/KIlEX//Z"],
+                                    "overview": ["<h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>"]
+                },
+                "features": [
+                                { 
+                                    "guid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac", 
+                                    "status": "active",
+                                    "dateCreated": 1431588596095, 
+                                    "lastUpdated": 1431588596095,
+                                    "sendTo": "Bob@Imposter.co.uk"
+                                },
+                                { 
+                                    "guid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac", 
+                                    "status": "active",
+                                    "dateCreated": 1431588596095, 
+                                    "lastUpdated": 1431588596095,
+                                    "uri": "http://charles-river.co.uk"
+                                }
+                ]
+            }
+
+## Bundle Features [/secure/bundles/{guid}/features]
+### Add a Feature to a bundle [POST]
+
++ Request (application/json)
+
+        { 
+            "featureGuid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac" 
+        }
+
++ Response 201 (application/json)
+
+        { 
+            "bundleFeatureGuid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac",
+            "bundleGuid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac", 
+            "featureGuid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac", 
+            "status": "inactive",
+            "dateCreated": 1431588596095, 
+            "lastUpdated": 1431588596095
+        }   
+
+## Bundle Features [/secure/bundles/{guid}/features/{guid}]
+### Remove a Feature from a bundle [DELETE]
+
+**Warning:** This action **permanently** removes the link to the feature on the bundle from the database.
+
++ Request (application/json)
+
+        { 
+            "featureGuid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac" 
+        }
+
++ Response 204
+
+# Group Features
+Features are related resources of the **Bundles CRUD API**
+
+## Features [/secure/features]
+### Create a new Feature [POST]
+
++ Request (application/json)
+
+        { 
+            "type": "email",
+            "sendTo": "Bob@Imposter.com" 
+        }
+
++ Response 201 (application/json)
+
+        { 
+            "guid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac"
+            "type": "email", 
+            "status": "inactive",
+            "dateCreated": 1431588596095, 
+            "lastUpdated": 1431588596095,
+            "sendTo": "Bob@Imposter.com"
+        }
+
+## Features [/secure/features/{guid}]
+A single feature object with all its details
+
++ Parameters
+    + guid (required, alpha numeric, `558f7e5d-4c1b-4eb7-8166-f134f9ae07ac`) ... Alpha Numeric `guid` of the Feature to perform action with. Has example value.
+
+### Retrieve a Feature [GET]
++ Response 200 (application/json)
+
+    + Body
+
+            { 
+                "guid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac", 
+                "status": "inactive",
+                "dateCreated": 1431588596095, 
+                "lastUpdated": 1431588596095,
+                "sendTo": "Bob@Imposter.com"
+            }
+            
+### Update a Feature [PUT]
++ Request (application/json)
+
+        { 
+            "status": "active"
+            "sendTo": "Bob@Imposter.co.uk"
+        }
+
++ Response 201 (application/json)
+
+        { 
+            "guid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac", 
+            "status": "active",
+            "dateCreated": 1431588596095, 
+            "lastUpdated": 1431588596095,
+            "sendTo": "Bob@Imposter.co.uk"
+        }         
