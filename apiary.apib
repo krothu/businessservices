@@ -106,6 +106,24 @@ A single Bundle object with all its details
             "lastUpdated": 1431588596095
         }
 
+### Add a Feature to a bundle [PUT]
++ Request (application/json)
+
+        { 
+            "featureGuid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac" 
+        }
+
++ Response 201 (application/json)
+
+        { 
+            "bundleFeatureGuid": "803cec6c-5a55-482b-92d3-d91f4979f4eb",
+            "bundleGuid": "b872d23c-23ef-4816-b631-cb5e05407e1d", 
+            "featureGuid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac", 
+            "status": "inactive",
+            "dateCreated": 1431588596095, 
+            "lastUpdated": 1431588596095
+        }   
+
 ### Retrieve a Bundle [GET]
 + Response 200 (application/json)
 
@@ -141,26 +159,6 @@ A single Bundle object with all its details
                 ]
             }
 
-## Bundle Features [/secure/admin/bundles/{guid}/features]
-### Add a Feature to a bundle [POST]
-
-+ Request (application/json)
-
-        { 
-            "featureGuid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac" 
-        }
-
-+ Response 201 (application/json)
-
-        { 
-            "bundleFeatureGuid": "803cec6c-5a55-482b-92d3-d91f4979f4eb",
-            "bundleGuid": "b872d23c-23ef-4816-b631-cb5e05407e1d", 
-            "featureGuid": "558f7e5d-4c1b-4eb7-8166-f134f9ae07ac", 
-            "status": "inactive",
-            "dateCreated": 1431588596095, 
-            "lastUpdated": 1431588596095
-        }   
-
 ## Bundle Features [/secure/admin/bundles/{bundleGuid}/features/{featureGuid}]
 ### Remove a Feature from a bundle [DELETE]
 
@@ -171,13 +169,13 @@ A single Bundle object with all its details
 # Group Features
 Features are related resources of the **Bundles CRUD API**
 
-## Features [/secure/admin/features]
-### Create a new Feature [POST]
+## Features [/secure/admin/features/findOutMoreFeatures]
+### Create a new "find out more" Feature" [POST]
 
 + Request (application/json)
 
         { 
-            "type": "email",
+            "type": "findOutMoreFeature",
             "sendTo": "Bob@Imposter.com" 
         }
 
@@ -192,26 +190,7 @@ Features are related resources of the **Bundles CRUD API**
             "sendTo": "Bob@Imposter.com"
         }
 
-## Features [/secure/admin/features/{guid}]
-A single feature object
-
-+ Parameters
-    + guid (required, alpha numeric, `fb053600-55c4-44f5-a8b3-5bba49cd744e`) ... Alpha Numeric `guid` of the Feature to perform action with. Has example value.
-
-### Retrieve a Feature [GET]
-+ Response 200 (application/json)
-
-    + Body
-
-            { 
-                "guid": "fb053600-55c4-44f5-a8b3-5bba49cd744e", 
-                "status": "inactive",
-                "type": "email",
-                "dateCreated": 1431588596095, 
-                "lastUpdated": 1431588596095,
-                "sendTo": "Bob@Imposter.com"
-            }
-            
+## Features [/secure/admin/features/findOutMoreFeatures/{id}]
 ### Update a Feature [PUT]
 
 You cannot update the type of a Feature, only status and the specific feature configuration.
@@ -233,3 +212,23 @@ You cannot update the type of a Feature, only status and the specific feature co
             "lastUpdated": 1431588596095,
             "sendTo": "Bob@Imposter.co.uk"
         }         
+
+## Features [/secure/admin/features/{id}]
+A single feature object
+
++ Parameters
+    + guid (required, alpha numeric, `fb053600-55c4-44f5-a8b3-5bba49cd744e`) ... Alpha Numeric `guid` of the Feature to perform action with. Has example value.
+
+### Retrieve a Feature [GET]
++ Response 200 (application/json)
+
+    + Body
+
+            { 
+                "guid": "fb053600-55c4-44f5-a8b3-5bba49cd744e", 
+                "status": "inactive",
+                "type": "email",
+                "dateCreated": 1431588596095, 
+                "lastUpdated": 1431588596095,
+                "sendTo": "Bob@Imposter.com"
+            }
